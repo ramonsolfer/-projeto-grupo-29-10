@@ -1,0 +1,369 @@
+:root {
+    --azul: #253f62;
+    --verde: #adf8a0;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+/*essa barra foi feita com checkbox para mostrar e esconder ela quando o botão for clicado*/
+.barra {
+    position: fixed;
+    width: 240px;
+    left: -240px;
+    height: 100%;
+    background: var(--verde);
+    transition: all .5s ease;
+}
+/*os atributos da barra vão estar logo abiaxo como fonte, display e tudo mais*/
+.barra h1 {
+    font-size: 28px;
+    color: var(--azul);
+    line-height: 70px;
+    text-align: center;
+    background-color: var(--verde);
+    user-select: none;
+    font-family: 'Sora', sans-serif;
+}
+
+.barra a{
+    display: block;
+    height: 65px;
+    width: 100%;
+    color: var(--verde);
+    line-height: 65px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    border-left: 5px solid transparent;
+    font-family: 'Sora', sans-serif;
+    transition: all .5s ease;
+}
+/* aqui é quando estiver ativo e você passar o mouse nos botões do menu*/
+a.active,a:hover{
+    border-left: 5px solid --azul;
+    color: var(--azul);
+    text-decoration: none;
+}
+/*estilização dos ícones do menu*/
+.barra a ion-icons {
+    font-size: 23px;
+    margin-right: 16px;
+}
+.barra a span{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+/* aqui eu coloquei pra checkbox ficar invisivel pois fica feio de outra forma*/
+
+#check {
+    display: none;
+}
+/* quando o menu for clicado, a barra é mostrada mas o menu continua ali do lado
+para você pode fechar o menu novamente se assim desejar*/
+label #btn,label #cancel{
+    position: fixed;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+    margin: 15px 30px;
+    font-size: 28px;
+    background: black;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    line-height: 45px;
+    transition: all .5s ease;
+}
+
+label #cancel {
+    opacity: 0;
+}
+#check:checked ~ .barra {
+    left: 0;
+}
+#check:checked ~ label #btn{
+    margin-left: 245px;
+}
+html, 
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+header {
+    width: 100%;
+    height: 600px;
+    background: var(--azul);
+}
+
+.content {
+    max-width: 1000px;
+    min-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+/*era pra estar tendo um bloco branco no slider, mas por algum motivo não tá indo*/
+.content .header-block {
+    max-width: 1000px;
+    min-width: 300px;
+    height: 450px;
+    background: var(--azul);
+    border-radius: 8px;
+    box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
+    padding: 10px;
+}
+/*aqui começa o slider de imagem, fiz ele bem simples*/
+.slider {
+    margin: 25px auto;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+}
+.slides {
+    width: 400%;
+    height: 400px;
+    display: flex;
+}
+.slides input{
+    display: none;
+}
+.slide {
+    width: 25%;
+    position: relative;
+    transition: 1s;
+}
+.slide img{
+    width: 800px;
+}
+/*aqui começa a navegação do slide, os botões e tudo mais e como ele vai
+trocando as imagens quando os botões forem pressionados*/
+.manual-navigation {
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+.manual-btn {
+    border: 2px solid #ffff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+.manual-btn:hover{
+    background-color: #ffff;
+}
+/* o checked aqui funciona para trocar as imagens de uma para outra*/
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+#radio2:checked ~ .first{
+    margin-left: -25%;
+}
+#radio3:checked ~ .first{
+    margin-left: -50%;
+}
+/*aqui era pra estar funcionando o slide automaticamente, mas não conseguimos*/
+.navigation-auto div{
+    border: 2px solid #20a6ff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.navigation-auto{
+    position: absolute;
+    width: 800px;
+    margin-top: 360px;
+    display: flex;
+    justify-content: center;
+}
+.navigation-auto div:not(:last-child){
+    margin-right: 40px
+}
+/*esses são os botões dos slides para trocar de imagem*/
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background-color: #ffff;
+}
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background-color: var(--azul);
+}
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background-color: #ffff;
+}
+/* aqui é a esitlização do catálago de viagens*/
+.card-item {
+    display: grid;
+    grid-template-columns:auto auto auto auto;
+    height: 400px;
+    border-radius: 25px;
+    background-color: #253f62;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+section .catalog {
+    width: 1500px;
+    padding: 100px;
+}
+section .filter-card {
+    width: 1000px;
+    height: 150px;
+    background-color: rgb(241, 241, 241);
+    border-radius: 8px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.search-input {
+    width: 700px;
+    height: 50px;
+    border: none;
+    border-radius: 4px 0px 0px 4px;
+    text-indent: 10px;
+}
+.search-button {
+    width: 150px;
+    height: 50px;
+    border-radius: 0px 4px 4px 0px;
+    border: none;
+    background: var(--azul);
+    color: white;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.2s ease;
+    transform: translateY(-10%);
+}
+.search-button:hover{
+    background: var(--verde);
+    color: var(--azul);
+}
+.title-wrapper-catalog {
+    margin-top: 200px;
+    padding-bottom: 20px;   
+}
+section .card-wrapper {
+    width: 1300px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 40px;
+    padding: 50px;
+    transform: translateX(-12%);
+}
+h3 {
+    color: white;
+}
+button {
+    font-family: 'Sora', sans-serif;
+    color: black;
+    background-color: white;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 200px;
+}
+a {
+    text-decoration: none;
+}
+footer {
+    width: 100%;
+    min-height: 250px;
+    background: var(--azul);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+footer .boxs {
+    width: 320px;
+    min-height: 150px;
+    padding: 20px;
+}
+.boxs h2{
+    color: white;
+    margin-bottom: 20px;
+}
+.boxs ul li {
+    margin: 10px 0px;
+    list-style: none;
+
+}
+.boxs ul li a {
+    color: #ddd;
+    text-decoration: none;
+}
+.boxs ul li a:hover {
+    color: var(--verde);
+}
+/*tentamos fazer responsivo, mas não conseguimos e não fazemos ideia do porquê*/
+@media(max-width: 950px)
+{
+    footer{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 1024px) {
+    html, body, .header-block, .barra, .lista, .content, .check,
+    .slides, .slider {
+        width: 50%;
+    }
+}
+@media(max-width: 860px){
+    .barra{
+        height: auto;
+        width: 70px;
+        left: 0;
+    }
+}
+
+@media(max-width: 860p){
+        .barra{
+            height: auto;
+            width: 70px;
+            left: 0;
+            margin: 100px 0;
+        }
+    h1, #btn, #cancel{
+        display: none;
+    }
+    span{
+        position: absolute;
+        margin-left: 23px;
+        opacity: 0;
+        visibility: hidden;
+
+    }
+    .barra a{
+        height: 60px;
+    }
+    .barra a ion-icons{
+        margin-left: -10px;
+    }
+    a:hover {
+        width: 200px;
+        background: inherit;
+    }
+    .barra a:hover span{
+        opacity: 1;
+        visibility: hidden;
+    }
+    
+}

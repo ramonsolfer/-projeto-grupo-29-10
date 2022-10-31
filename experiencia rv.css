@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #253f62;
+}
+header {
+    position: fixed;
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    padding: 20px;
+}
+.titulo h3{
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-family: 'Comfortaa', cursive;
+    color: #adf8a0;
+    text-shadow: 1px 1px 0 #000;
+
+}
+.titulo span{
+    color: #253f62;
+}
+.barra {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    margin-top: 70px;
+    padding-top: 30px;
+    right: 0;
+    background: #adf8a0;
+    transition: 0.5s;
+    transition-property: right;
+}
+ul {
+    list-style-type: none;
+}
+.barra a{
+    font-family: 'Sora', sans-serif;
+    color: black;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background;
+    text-decoration: none;
+}
+.barra a:hover{
+    background: #253f62;
+    color: white;
+}
+.barra ion-icon{
+    padding-right: 25px;
+}
+label #barra_btn{
+    z-index: 1;
+    position: fixed;
+    right: 25px;
+    color: black;
+    font-size: 25px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+label #barra_btn:hover{
+    color: #006eff;
+}
+#check:checked ~ .barra{
+    right: -190px;
+}
+#check:checked ~ .barra a span{
+    display: none;
+}
+#check:checked ~ .barra a{
+    font-size: 20px;
+    margin-right: 200px;
+    width: 80px;
+    transition: 0.5s;
+    transition-property: color;
+}
+#check{
+    display:none;
+}
+
+.akihabara {
+    height: 900px;
+    width: 1700px;
+    transition: 0.5s;
+    margin-top: 150px;
+
+
+}
+#check:checked ~ .akihabara{
+    margin-right: 150px;
+}
+ img {
+    
+    border: 40px solid white;
+    
+}

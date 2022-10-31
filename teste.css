@@ -1,0 +1,240 @@
+/*trabalhar com border-box na página, posso estar errado, mas esse foi o 
+único jeito que eu encontrei de ter uma responsividade fácil*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* html e body pra ter uma posição relative e height 100% pra poder ter a barra de scrol*/
+html, body{
+    height: 100%;
+    width: 1800px;
+    position: flex;
+    background-color: #253f62;
+}
+    :root {
+        --azul: #253f62;
+        --verde: #adf8a0;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    /*essa barra foi feita com checkbox para mostrar e esconder ela quando o botão for clicado*/
+    .barra {
+        position: fixed;
+        width: 240px;
+        left: -240px;
+        height: 100%;
+        background: var(--verde);
+        transition: all .5s ease;
+    }
+    /*os atributos da barra vão estar logo abiaxo como fonte, display e tudo mais*/
+    .barra h1 {
+        font-size: 28px;
+        color: var(--azul);
+        line-height: 70px;
+        text-align: center;
+        background-color: var(--verde);
+        user-select: none;
+        font-family: 'Sora', sans-serif;
+    }
+    
+    .barra a{
+        display: block;
+        height: 65px;
+        width: 100%;
+        color: var(--verde);
+        line-height: 65px;
+        padding-left: 30px;
+        box-sizing: border-box;
+        border-bottom: 1px solid black;
+        border-left: 5px solid transparent;
+        font-family: 'Sora', sans-serif;
+        transition: all .5s ease;
+    }
+    /* aqui é quando estiver ativo e você passar o mouse nos botões do menu*/
+    a.active,a:hover{
+        border-left: 5px solid --azul;
+        color: var(--azul);
+        text-decoration: none;
+    }
+    /*estilização dos ícones do menu*/
+    .barra a ion-icons {
+        font-size: 23px;
+        margin-right: 16px;
+    }
+    .barra a span{
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    /* aqui eu coloquei pra checkbox ficar invisivel pois fica feio de outra forma*/
+    
+    #check {
+        display: none;
+    }
+    /* quando o menu for clicado, a barra é mostrada mas o menu continua ali do lado
+    para você pode fechar o menu novamente se assim desejar*/
+    label #btn,label #cancel{
+        position: fixed;
+        cursor: pointer;
+        color: white;
+        border-radius: 5px;
+        border: 1px solid white;
+        margin: 15px 30px;
+        font-size: 28px;
+        background: black;
+        height: 45px;
+        width: 45px;
+        text-align: center;
+        line-height: 45px;
+        transition: all .5s ease;
+    }
+    
+    label #cancel {
+        opacity: 0;
+    }
+    #check:checked ~ .barra {
+        left: 0;
+    }
+    #check:checked ~ label #btn{
+        margin-left: 245px;
+    }
+/* isso aqui é só o título da primeira imagem, experiência RV e eu coloquei
+como display inline e mais uma transition*/
+h1 {
+    margin-top: 250px;
+    text-align: center;
+    background-color: white;
+    font-size: 50px;
+    display: inline;
+    transition: 0.5s;
+    font-family: 'Comfortaa', cursive;
+    margin-left: 710px;
+
+}
+h3 {
+    margin-top: 250px;
+    text-align: center;
+    background-color: white;
+    font-size: 50px;
+    display: inline;
+    transition: 0.5s;
+    font-family: 'Comfortaa', cursive;
+    margin-left: 730px;
+}
+/*fiz uma section pra seprar o texto bonitinho de baixo*/
+section.explicacao {
+    height: 200px;
+    text-align: center;
+    background-color: white;
+    font-size: 20px;
+    display: block;
+    border-radius: 3000px;
+    transition: 0.5s;
+    font-family: 'Bellota Text', cursive;
+}
+/*aqui é a primeira imagem*/
+.vr {
+    height: 400px;
+    width: 720px;
+    transition: 0.5s;
+    margin-top: 150px;
+    margin-left: 540px;
+    border: 20px solid white;
+}
+.texto {
+    justify-content: center;
+}
+/*animação na imagem também*/
+
+img {
+    
+    border: 8px solid white;
+    
+}
+div {
+    transition: 0.5s;
+    transition-property: right;
+}
+/*animação no titulo*/
+
+/*eu queria fazer animação no texto também, mas infelizmente não consegui
+e não sei dizer o porquÊ*/
+
+iframe {
+    height: 400px;
+    width: 720px;
+    transition: 0.5s;
+    margin-top: 150px;
+    border: 4px solid green;
+}
+#check:checked ~ iframe{
+    text-align: center;
+    transition: 0.5s;
+    transition-property: right;
+}
+h4 {
+    margin-top: 250px;
+    text-align: center;
+    background-color: white;
+    font-size: 50px;
+    display: inline;
+    transition: 0.5s;
+    font-family: 'Comfortaa', cursive;
+    margin-left: 850px;
+}
+h5 {
+    margin-top: 250px;
+    text-align: center;
+    background-color: white;
+    font-size: 50px;
+    display: inline;
+    transition: 0.5s;
+    font-family: 'Comfortaa', cursive;
+    margin-left: 610px;
+}
+#check:checked ~ h4{
+    margin-right: 50px;
+    margin-left: 900px;
+}
+#check:checked ~ h5{
+    margin-right: 50px;
+    margin-left: 665px;
+}
+footer {
+    width: 100%;
+    min-height: 250px;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+footer .boxs {
+    width: 320px;
+    min-height: 150px;
+    padding: 20px;
+}
+.boxs h2{
+    color: black;
+    margin-bottom: 20px;
+}
+.boxs ul li {
+    margin: 10px 0px;
+    list-style: none;
+
+}
+.boxs ul li a {
+    color: black;
+    text-decoration: none;
+}
+.boxs ul li a:hover {
+    color: #adf8a0;
+}
+@media(max-width: 950px)
+{
+    footer{
+        flex-direction: column;
+    }
+}
